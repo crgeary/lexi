@@ -5,7 +5,7 @@ import { App } from "./app.component.tsx";
 
 // biome-ignore lint/style/noNonNullAssertion: exists in html
 createRoot(document.getElementById("root")!).render(
-	<StrictMode>
-		<App />
-	</StrictMode>,
+  <StrictMode>
+    <App />
+  </StrictMode>,
 );

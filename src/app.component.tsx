@@ -1,3 +1,3 @@
 export function App() {
-	return <p>Lexi</p>;
+  return <p>Lexi</p>;
 }
