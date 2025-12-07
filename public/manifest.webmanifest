@@ -1,0 +1,25 @@
+{
+  "short_name": "Lexi",
+  "name": "Lexi",
+  "icons": [
+    {
+      "src": "/icon-512w.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-256w.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-128w.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "fullscreen",
+  "theme_color": "#3f3f47",
+  "background_color": "#3f3f47"
+}
