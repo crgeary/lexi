@@ -11,7 +11,7 @@ export const Game: FC<GameProps> = () => {
 
   return (
     <>
-      {hook.status === "playing" ? (
+      {hook.status !== "idle" ? (
         <div className="max-w-5xl mx-auto flex flex-col gap-1">
           <Board
             rows={MAX_GUESS_COUNT}
@@ -19,22 +19,28 @@ export const Game: FC<GameProps> = () => {
             guesses={hook.guesses}
             currentGuess={hook.currentGuess}
           />
-          <Keyboard
-            solution={hook.solution}
-            guesses={hook.guesses}
-            onChar={(char) => hook.addChar(char)}
-            onEnter={() => hook.submitGuess()}
-            onDelete={() => hook.removeChar()}
-          />
+          {hook.status === "playing" ? (
+            <Keyboard
+              solution={hook.solution}
+              guesses={hook.guesses}
+              onChar={(char) => hook.addChar(char)}
+              onEnter={() => hook.submitGuess()}
+              onDelete={() => hook.removeChar()}
+            />
+          ) : (
+            <div className="flex flex-col items-center gap-2">
+              <p className="text-2xl text-zinc-200">{hook.status.toLocaleUpperCase()}</p>
+              <button type="button" className="block bg-blue-500 text-white p-2" onClick={() => hook.startGame()}>
+                Play Again
+              </button>
+            </div>
+          )}
         </div>
       ) : (
         <div className="flex items-center justify-center h-screen">
-          <div className="flex flex-col items-center gap-2">
-            {hook.status !== "idle" && <p className="text-2xl text-zinc-200">{hook.status.toLocaleUpperCase()}</p>}
-            <button type="button" className="block bg-blue-500 text-white p-2" onClick={() => hook.startGame()}>
-              Play Game
-            </button>
-          </div>
+          <button type="button" className="block bg-blue-500 text-white p-2" onClick={() => hook.startGame()}>
+            Play Game
+          </button>
         </div>
       )}
     </>
