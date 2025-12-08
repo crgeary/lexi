@@ -3,7 +3,7 @@ import { getGuessedRowState } from "../../utils/get-guessed-row-state.js";
 import { Row } from "./row.component.js";
 
 export type BoardProps = {
-  solution: string;
+  solution: string | null;
   rows: number;
   guesses: string[];
   currentGuess: string;

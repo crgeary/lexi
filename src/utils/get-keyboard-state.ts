@@ -1,7 +1,7 @@
 import type { CharState } from "../types/char.js";
 
-export const getKeyboardState = (guesses: string[], solution: string) => {
-  const splitSolution = solution.split("");
+export const getKeyboardState = (guesses: string[], solution: string | null) => {
+  const splitSolution = solution?.split("") ?? [];
 
   return guesses.reduce(
     (acc, guess) => {

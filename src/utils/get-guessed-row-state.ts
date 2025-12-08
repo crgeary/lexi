@@ -1,9 +1,9 @@
 import { VALID_WORD_LENGTH } from "../constants/index.js";
 import type { CharState } from "../types/char.js";
 
-export const getGuessedRowState = (guess: string, solution: string) => {
+export const getGuessedRowState = (guess: string, solution: string | null) => {
   const checked = Array.from({ length: 5 }).fill(false);
-  const splitSolution = solution.split("");
+  const splitSolution = solution?.split("") ?? [];
 
   return guess.split("").reduce(
     (acc, curr, i) => {
