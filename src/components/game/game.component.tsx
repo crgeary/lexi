@@ -11,8 +11,6 @@ export const Game: FC<GameProps> = () => {
 
   return (
     <>
-      {hook.status === "success" && "SUCCESS"}
-      {hook.status === "fail" && "FAIL"}
       {hook.status === "playing" ? (
         <div className="max-w-5xl mx-auto flex flex-col gap-1">
           <Board
@@ -30,9 +28,14 @@ export const Game: FC<GameProps> = () => {
           />
         </div>
       ) : (
-        <button type="button" onClick={() => hook.startGame()}>
-          Play Game
-        </button>
+        <div className="flex items-center justify-center h-screen">
+          <div className="flex flex-col items-center gap-2">
+            {hook.status !== "idle" && <p className="text-2xl text-zinc-200">{hook.status.toLocaleUpperCase()}</p>}
+            <button type="button" className="block bg-blue-500 text-white p-2" onClick={() => hook.startGame()}>
+              Play Game
+            </button>
+          </div>
+        </div>
       )}
     </>
   );

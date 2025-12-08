@@ -4,6 +4,7 @@ import type { GameState } from "../types/game.js";
 import { getRandomWord } from "../utils/get-random-word.js";
 import { MAX_GUESS_COUNT, VALID_WORD_LENGTH } from "../constants/index.js";
 import { Currency } from "lucide-react";
+import { isValidWord } from "../utils/is-valid-word.js";
 
 function startGame(state: GameState): GameState {
   const randomWord = getRandomWord();
@@ -37,7 +38,7 @@ function removeChar(state: GameState): GameState {
 }
 
 function submitGuess(state: GameState): GameState {
-  if (state.guesses.length >= MAX_GUESS_COUNT || state.guesses.includes(state.currentGuess)) {
+  if (!isValidWord(state.currentGuess) || state.guesses.includes(state.currentGuess)) {
     return state;
   }
 
