@@ -4,7 +4,7 @@ import { getKeyboardState } from "../../utils/get-keyboard-state.js";
 import { Key } from "./key.component.js";
 
 export type KeyboardProps = {
-  solution: string;
+  solution: string | null;
   guesses: string[];
 
   onChar: (char: string) => void;
