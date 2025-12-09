@@ -13,7 +13,6 @@ export const Game: FC<GameProps> = () => {
     <>
       {hook.status !== "idle" ? (
         <div className="max-w-5xl mx-auto flex flex-col gap-1">
-          {hook.solution}
           <Board
             rows={MAX_GUESS_COUNT}
             solution={hook.solution}
