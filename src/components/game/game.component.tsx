@@ -13,6 +13,7 @@ export const Game: FC<GameProps> = () => {
     <>
       {hook.status !== "idle" ? (
         <div className="max-w-5xl mx-auto flex flex-col gap-1">
+          {hook.solution}
           <Board
             rows={MAX_GUESS_COUNT}
             solution={hook.solution}
@@ -29,7 +30,8 @@ export const Game: FC<GameProps> = () => {
             />
           ) : (
             <div className="flex flex-col items-center gap-2">
-              <p className="text-2xl text-zinc-200">{hook.status.toLocaleUpperCase()}</p>
+              <p className="text-sm text-zinc-400">{hook.status.toLocaleUpperCase()}</p>
+              {hook.solution && <p className="text-2xl text-zinc-200">{hook.solution.toLocaleUpperCase()}</p>}
               <button type="button" className="block bg-blue-500 text-white p-2" onClick={() => hook.startGame()}>
                 Play Again
               </button>
